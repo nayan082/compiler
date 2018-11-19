@@ -1,0 +1,46 @@
+_void _main _lp _rp
+_lcb
+
+	_int a _eq 5 , p , b _eq 2 , d _eq 10 , e , a ;
+	_int x , y , t;
+
+	y _eq 20 ;
+	z _eq 10 ;
+	
+	
+	_for _lp x _eq 0 , x _le 10, x _aa _rp 
+	_lcb
+		 _pr x ; 
+	_rcb
+	
+	x _eq 1;
+	
+	_if y _gt 4 _then:
+	_lcb
+		_pr y ;
+	_rcb
+
+	_else
+	_lcb
+		_pr z ;		
+	_rcb
+
+	_switch _lp x _rp
+	_lcb
+		_case 0 : 
+			_pr x;
+			_break;
+
+		_case 1 : 
+			_pr y;
+			_break;
+
+		_case 3 : 
+			_pr x;
+			_break;	
+
+		_default :
+			_pr z;
+	_rcb
+	
+_rcb

@@ -1,0 +1,9 @@
+var 25 1 
+17 1 
+1 1 
+2 1 
+Redeclared
+2 1 
+
+valid declaration
+syntax error

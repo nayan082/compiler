@@ -1,0 +1,8 @@
+void main_function LP   RP
+LB
+int  a cm a cm  b cm c sm
+
+1 plus 4 minus 8 div 4 mult 4 sm
+a <- 10 plus 4 minus 8 div 4 mult 4 sm
+	
+RB
