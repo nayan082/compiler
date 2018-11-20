@@ -5,7 +5,7 @@ s_char [a-z]
 c_char [A-Z]
 digit [0-9]
 sp [" "]
-operator [+|*|/|=|;|:|-]
+operator [!+|*|/|=|;|:|-]
 
 vint "_int"
 vstring "_string"
@@ -79,6 +79,7 @@ nott "_not"
 	#include "task.tab.h"
 	#include<stdlib.h>
 	extern int yylval;
+	char str[100];
 %}
 
 /*-------------------------------------RE and Action------------------------------------------------*/
@@ -100,6 +101,7 @@ nott "_not"
 {rcb}		{ return RB; }
 ","			{ return CM; }
 ";"			{ return SM; }
+"\""			{ return QUOTE; }
 ":"			{ return COLON; }
 {thenn}		{ return THEN; }
 
@@ -121,6 +123,13 @@ nott "_not"
 {default} 	{ return DEFAULT; }
 {break}		{ return BREAK; }
 
+[a-z]([a-z]+|[A-Z]+|[!]+)+ {
+				//printf("%s\n",yytext);
+				for(yylval=0;yylval<yyleng;yylval++) str[yylval] = yytext[yylval];
+
+				//printf("str %s =  %d\n",str,STR);
+				return STR;
+			}
 [a-z]		{
 				yylval = *yytext - 'a';
 				return	VAR;

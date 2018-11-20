@@ -10,19 +10,23 @@ _lcb
 	
 	_for _lp x _eq 0 , x _le 10, x _aa _rp 
 	_lcb
-		 _pr x ; 
+		 
+		_pr x ; 
+		_pr "xyx" ;
 	_rcb
 	
-	x _eq 1;
+	x _eq 5;
 	
-	_if y _gt 4 _then:
+	_if y _gt 40 _then:
 	_lcb
+		_pr "bosssseeeP!";
 		_pr y ;
 	_rcb
 
 	_else
 	_lcb
-		_pr z ;		
+		_pr z ;	
+		_pr "tosshh";	
 	_rcb
 
 	_switch _lp x _rp
@@ -32,15 +36,17 @@ _lcb
 			_break;
 
 		_case 1 : 
-			_pr y;
+			_pr "nayan";
 			_break;
+			
 
 		_case 3 : 
 			_pr x;
 			_break;	
 
 		_default :
-			_pr z;
+			_pr x;
+			
 	_rcb
 	
 _rcb
