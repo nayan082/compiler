@@ -1,26 +1,41 @@
 _void _main _lp _rp
 _lcb
 
-	_int a _eq 5 , p , b _eq 2 , d _eq 10 , e , a ;
-	_int x , y , t;
+	_int fff _eq 0, ac,fff, ab _eq 2;
+	_int x,y,z,a _eq 10, aaa _eq 100,abcd;
+	
+	abd _eq 0 ;
+	ab _eq 4 ;
+
+	_pr "This is outside statement";
+	_pr ab;
+	_pr "This is my compiler";
+
+	_int pp _eq 0;
+	pp _eq 10;	
 
 	y _eq 20 ;
-	z _eq 10 ;
+	z _eq ab ;
 	
-	
-	_for _lp x _eq 0 , x _le 10, x _aa _rp 
+	_for _lp fff _eq 0 , fff _le 10, fff _aa _rp 
 	_lcb
-		 
-		_pr x ; 
-		_pr "xyx" ;
+		_pr fff ; 
+		_pr "nayan!";	
 	_rcb
 	
-	x _eq 5;
+	x _eq 5;	
+	 
 	
-	_if y _gt 40 _then:
+	_if fff _gt 3 _then:
 	_lcb
-		_pr "bosssseeeP!";
-		_pr y ;
+		
+		_if y _gt 3 _then:
+		_lcb
+			_pr "bosssseeeP!";
+			_pr ab ;
+			_pr "bosssseeeP!";
+		_rcb
+
 	_rcb
 
 	_else

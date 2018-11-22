@@ -80,6 +80,8 @@ nott "_not"
 	#include<stdlib.h>
 	extern int yylval;
 	char str[100];
+	char multichar[100][100];
+	int i,cnt=0;
 %}
 
 /*-------------------------------------RE and Action------------------------------------------------*/
@@ -101,14 +103,13 @@ nott "_not"
 {rcb}		{ return RB; }
 ","			{ return CM; }
 ";"			{ return SM; }
-"\""			{ return QUOTE; }
 ":"			{ return COLON; }
 {thenn}		{ return THEN; }
 
 {add}		{ return PLUS; }
 {sub}		{ return MINUS; }
 "**"		{ return MULT; }
-"//"		{ return DIV; }
+"///"		{ return DIV; }
 {assign}	{ return ASSIGN;  }
 {gt}		{ return GT; }
 {lt}		{ return LT; }
@@ -123,17 +124,27 @@ nott "_not"
 {default} 	{ return DEFAULT; }
 {break}		{ return BREAK; }
 
-[a-z]([a-z]+|[A-Z]+|[!]+)+ {
+"\""[a-zA-Z]([ a-z]+|[A-Z]+|[!]+)+"\"" {
 				//printf("%s\n",yytext);
-				for(yylval=0;yylval<yyleng;yylval++) str[yylval] = yytext[yylval];
+				for(i=0;i<yyleng-2;i++) str[i] = yytext[i+1];
 
 				//printf("str %s =  %d\n",str,STR);
 				return STR;
 			}
 [a-z]		{
 				yylval = *yytext - 'a';
+				//printf("yylval = %d\n",yylval);
 				return	VAR;
 			}
+
+[a-z][a-z]+ {
+				//yylval = atoi(yytext);
+				//printf("%s = %d\n",yytext,yylval);
+				for(i=0;i<yyleng;i++) multichar[cnt][i] = yytext[i];
+				cnt++;
+
+				return VAR1;
+			}			
 
 {iff}		{ return IF;		}
 {elsee}		{ return ELSE;		}
@@ -141,6 +152,8 @@ nott "_not"
 {void}{sp}{main}	{ return VOIDMAIN; }
 
 [ \t\n]*	;
+
+"//"(.)*"\n" { printf("This is a comment\n");}
 
 .	{
 		yyerror("Unknown Character.\n");
