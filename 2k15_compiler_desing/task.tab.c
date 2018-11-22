@@ -131,6 +131,7 @@
 			
 			return 1;
 		}
+		
 		return 0;
 	}
 	
@@ -181,7 +182,7 @@
 
 
 /* Line 189 of yacc.c  */
-#line 185 "task.tab.c"
+#line 186 "task.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -261,7 +262,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 265 "task.tab.c"
+#line 266 "task.tab.c"
 
 #ifdef short
 # undef short
@@ -576,13 +577,13 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   127,   127,   130,   131,   132,   133,   136,   139,   139,
-     139,   141,   141,   143,   152,   167,   194,   204,   223,   251,
-     258,   277,   313,   342,   342,   344,   344,   346,   356,   374,
-     379,   394,   394,   394,   394,   394,   396,   396,   396,   398,
-     404,   415,   424,   425,   426,   432,   455,   458,   458,   460,
-     464,   467,   473,   474,   475,   476,   487,   490,   491,   492,
-     495,   496,   499
+       0,   128,   128,   131,   132,   133,   134,   137,   140,   140,
+     140,   142,   142,   144,   153,   168,   195,   205,   224,   255,
+     262,   281,   317,   346,   346,   348,   348,   350,   360,   378,
+     383,   398,   398,   398,   398,   398,   400,   400,   400,   402,
+     408,   420,   428,   429,   430,   436,   459,   462,   462,   464,
+     468,   471,   477,   478,   479,   480,   491,   494,   495,   496,
+     499,   500,   503
 };
 #endif
 
@@ -1583,21 +1584,21 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 127 "task.y"
+#line 128 "task.y"
     { printf("\nsuccessful compilation\n"); ;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 136 "task.y"
+#line 137 "task.y"
     { printf("valid declaration\n\n"); ;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 143 "task.y"
+#line 144 "task.y"
     {
 										if(store[(yyvsp[(1) - (1)])] == 1) printf("variable '%c' Redeclared!!!\n",(yyvsp[(1) - (1)])+'a');
 										else
@@ -1611,7 +1612,7 @@ yyreduce:
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 152 "task.y"
+#line 153 "task.y"
     {	
 										int v = 1;
 										for(i=0; i<cnt-1; i++)
@@ -1631,7 +1632,7 @@ yyreduce:
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 167 "task.y"
+#line 168 "task.y"
     {
 										t=1;
 										
@@ -1662,7 +1663,7 @@ yyreduce:
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 194 "task.y"
+#line 195 "task.y"
     { 	
 										if(store[(yyvsp[(1) - (3)])] == 1) printf("variable '%c' Redeclared\n",(yyvsp[(1) - (3)])+'a');
 										else store[(yyvsp[(1) - (3)])]=1;
@@ -1676,7 +1677,7 @@ yyreduce:
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 204 "task.y"
+#line 205 "task.y"
     {	
 																	if(store[(yyvsp[(2) - (9)])]!=1)printf("Undeclared character : %c\n",(yyvsp[(2) - (9)])+'a');
 																	printf("\nIf Block\n");
@@ -1700,7 +1701,7 @@ yyreduce:
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 223 "task.y"
+#line 224 "task.y"
     {
 																	//printf("cnt in if = %d\n",cnt);
 																	//for(i=0;i<cnt;i++)printf("multi=%d --> %s\n",i,multichar[i]);
@@ -1726,6 +1727,9 @@ yyreduce:
 																		printf("Your 'IF' condition is false!\n");
 																	}
 																	single=multi=0;
+																	clearmultichar(cnt);
+																	cnt--;
+																	clearmultichar(cnt);
 																	cnt--;
 																;}
     break;
@@ -1733,7 +1737,7 @@ yyreduce:
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 251 "task.y"
+#line 255 "task.y"
     { 	printf("\nElse Block\n");
 											if(forifelse)
 											{
@@ -1745,7 +1749,7 @@ yyreduce:
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 258 "task.y"
+#line 262 "task.y"
     {   
 																						printf("\nFor Loop!!\n");
 																						if(store[(yyvsp[(3) - (16)])]!=1)
@@ -1769,7 +1773,7 @@ yyreduce:
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 277 "task.y"
+#line 281 "task.y"
     {
 																						//for(i=0;i<cnt;i++)printf("multi=%d ---> %s\n",i,multichar[i]);
 																						
@@ -1810,7 +1814,7 @@ yyreduce:
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 313 "task.y"
+#line 317 "task.y"
     { 
 														printf("\nSwitch case\n"); 
 														forswitchcase=sym[(yyvsp[(3) - (7)])]; 
@@ -1842,7 +1846,7 @@ yyreduce:
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 346 "task.y"
+#line 350 "task.y"
     { 	
 														printf("Case \n");
 														switchstack[(yyvsp[(2) - (8)])]=(yyvsp[(5) - (8)]);
@@ -1857,7 +1861,7 @@ yyreduce:
   case 28:
 
 /* Line 1455 of yacc.c  */
-#line 356 "task.y"
+#line 360 "task.y"
     {
 														
 														printf("Case \n");
@@ -1879,7 +1883,7 @@ yyreduce:
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 374 "task.y"
+#line 378 "task.y"
     {
 														printf("Default \n");
 														val=(yyvsp[(4) - (5)]);
@@ -1890,7 +1894,7 @@ yyreduce:
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 379 "task.y"
+#line 383 "task.y"
     {
 														
 														printf("Default\n");
@@ -1909,7 +1913,7 @@ yyreduce:
   case 39:
 
 /* Line 1455 of yacc.c  */
-#line 398 "task.y"
+#line 402 "task.y"
     { 	
 														fvalue=(yyvsp[(2) - (3)]); 
 														flagforval=1;
@@ -1921,28 +1925,28 @@ yyreduce:
   case 40:
 
 /* Line 1455 of yacc.c  */
-#line 404 "task.y"
+#line 408 "task.y"
     { 	
 														//printf("This ");
 														undeclaredcheck();
-														cnt--;
+														
 														fvalue = multichar[checkindex(cnt)][99];
-														//printf("fvalue = %d\n",fvalue);
+														//printf("%s = %d\n",multichar[checkindex(cnt)],fvalue);
 														
 														flagforval=1;
 														priorityval=++priority;
 														multi=1;
+														
 													;}
     break;
 
   case 41:
 
 /* Line 1455 of yacc.c  */
-#line 415 "task.y"
+#line 420 "task.y"
     {
 														flagforstr=1;
 														for(i=0;str[i]!='\0';i++)finsidestr[i]=str[i];
-														
 														prioritystr=++priority;
 														strclean();
 													;}
@@ -1951,14 +1955,14 @@ yyreduce:
   case 43:
 
 /* Line 1455 of yacc.c  */
-#line 425 "task.y"
+#line 429 "task.y"
     { printf("\nvalue of expression: %d\n", (yyvsp[(1) - (2)])); ;}
     break;
 
   case 44:
 
 /* Line 1455 of yacc.c  */
-#line 426 "task.y"
+#line 430 "task.y"
     {
 										sym[(yyvsp[(1) - (4)])] = (yyvsp[(3) - (4)]); 
 										//printf("%d\n",$1);
@@ -1970,7 +1974,7 @@ yyreduce:
   case 45:
 
 /* Line 1455 of yacc.c  */
-#line 432 "task.y"
+#line 436 "task.y"
     {
 										//printf("%d\n",cnt);
 										
@@ -1988,8 +1992,8 @@ yyreduce:
 												multichar[i][99] =(char)(yyvsp[(3) - (4)]);
 												printf("%s = %d (assignment)\n",multichar[i],multichar[i][99]);
 												
-												clearmultichar(cnt);
-												cnt--;
+												//clearmultichar(cnt);
+												//cnt--;
 											}
 										}
 										
@@ -1999,7 +2003,7 @@ yyreduce:
   case 49:
 
 /* Line 1455 of yacc.c  */
-#line 460 "task.y"
+#line 464 "task.y"
     {
 										printf("Prininting statement : %s\n",str);
 										strclean();
@@ -2009,7 +2013,7 @@ yyreduce:
   case 50:
 
 /* Line 1455 of yacc.c  */
-#line 464 "task.y"
+#line 468 "task.y"
     {			
 										printf("Prininting value : %c = %d\n",(yyvsp[(1) - (3)])+'a',sym[(yyvsp[(1) - (3)])]);
 									;}
@@ -2018,7 +2022,7 @@ yyreduce:
   case 51:
 
 /* Line 1455 of yacc.c  */
-#line 467 "task.y"
+#line 471 "task.y"
     {
 										indx = checkindex(cnt);
 										printf("Prininting value : %s = %d\n",multichar[indx],multichar[indx][99]);
@@ -2028,28 +2032,28 @@ yyreduce:
   case 52:
 
 /* Line 1455 of yacc.c  */
-#line 473 "task.y"
+#line 477 "task.y"
     { (yyval) = sym[(yyvsp[(1) - (1)])]; ;}
     break;
 
   case 53:
 
 /* Line 1455 of yacc.c  */
-#line 474 "task.y"
+#line 478 "task.y"
     { (yyval) = multichar[checkindex(cnt)][99];clearmultichar(cnt);cnt--; ;}
     break;
 
   case 54:
 
 /* Line 1455 of yacc.c  */
-#line 475 "task.y"
+#line 479 "task.y"
     { (yyval) = (yyvsp[(1) - (3)]) * (yyvsp[(3) - (3)]); ;}
     break;
 
   case 55:
 
 /* Line 1455 of yacc.c  */
-#line 476 "task.y"
+#line 480 "task.y"
     { 
 										if((yyvsp[(3) - (3)])) 
 										{
@@ -2066,42 +2070,42 @@ yyreduce:
   case 57:
 
 /* Line 1455 of yacc.c  */
-#line 490 "task.y"
+#line 494 "task.y"
     { (yyval) = (yyvsp[(1) - (3)]) + (yyvsp[(3) - (3)]); ;}
     break;
 
   case 58:
 
 /* Line 1455 of yacc.c  */
-#line 491 "task.y"
+#line 495 "task.y"
     { (yyval) = (yyvsp[(1) - (3)]) - (yyvsp[(3) - (3)]); ;}
     break;
 
   case 60:
 
 /* Line 1455 of yacc.c  */
-#line 495 "task.y"
+#line 499 "task.y"
     { (yyval) = (yyvsp[(1) - (1)]); ;}
     break;
 
   case 61:
 
 /* Line 1455 of yacc.c  */
-#line 496 "task.y"
+#line 500 "task.y"
     { (yyval) = (yyvsp[(2) - (3)]); ;}
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 499 "task.y"
+#line 503 "task.y"
     { (yyval) = (yyvsp[(1) - (1)]); ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 2105 "task.tab.c"
+#line 2109 "task.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2313,7 +2317,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 503 "task.y"
+#line 507 "task.y"
 
 
 int yywrap()

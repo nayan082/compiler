@@ -62,6 +62,7 @@
 			
 			return 1;
 		}
+		
 		return 0;
 	}
 	
@@ -245,6 +246,9 @@ structure  	: IF VAR operator NUM THEN COLON LB finsidelist RB	{
 																		printf("Your 'IF' condition is false!\n");
 																	}
 																	single=multi=0;
+																	clearmultichar(cnt);
+																	cnt--;
+																	clearmultichar(cnt);
 																	cnt--;
 																}
 															
@@ -404,18 +408,18 @@ finside		: PR VAR SM								{
 			| PR VAR1 SM 							{ 	
 														//printf("This ");
 														undeclaredcheck();
-														cnt--;
+														
 														fvalue = multichar[checkindex(cnt)][99];
-														//printf("fvalue = %d\n",fvalue);
+														//printf("%s = %d\n",multichar[checkindex(cnt)],fvalue);
 														
 														flagforval=1;
 														priorityval=++priority;
 														multi=1;
+														
 													}
 			| PR  STR  SM 							{
 														flagforstr=1;
 														for(i=0;str[i]!='\0';i++)finsidestr[i]=str[i];
-														
 														prioritystr=++priority;
 														strclean();
 													}
@@ -446,8 +450,8 @@ statement	: SM
 												multichar[i][99] =(char)$3;
 												printf("%s = %d (assignment)\n",multichar[i],multichar[i][99]);
 												
-												clearmultichar(cnt);
-												cnt--;
+												//clearmultichar(cnt);
+												//cnt--;
 											}
 										}
 										

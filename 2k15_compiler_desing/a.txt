@@ -28,14 +28,8 @@ _lcb
 	
 	_if fff _gt 3 _then:
 	_lcb
-		
-		_if y _gt 3 _then:
-		_lcb
-			_pr "bosssseeeP!";
-			_pr ab ;
-			_pr "bosssseeeP!";
-		_rcb
-
+		_pr "bosssseeeP!";
+		_pr ab ;
 	_rcb
 
 	_else
